@@ -6,5 +6,5 @@ plugins {
 }
 
 android {
-    setNameSpace("compose")
+    setNameSpace("calendar.compose")
 }

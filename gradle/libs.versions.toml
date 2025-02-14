@@ -20,6 +20,7 @@ jetbrainsKotlinJvm = "2.0.0"
 ## Compose
 composeBom = "2025.01.01"
 composeNavigation = "2.8.6"
+kotlinCompilerExtensionVersion = "1.5.2"
 
 ## Kotlin Symbol Processing
 ksp = "2.0.0-1.0.23"
@@ -36,6 +37,7 @@ coroutine = "1.8.1"
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 ## Compose
+compose-foundation = { module = 'androidx.compose.foundation:foundation' }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 compose-ui = { group = "androidx.compose.ui", name = "ui" }
 compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }

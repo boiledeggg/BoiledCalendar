@@ -1,5 +1,8 @@
 package com.boiled.calendar.buildlogic.primitive
 
+import com.android.build.api.dsl.LibraryExtension
+import com.android.build.gradle.BaseExtension
+import com.boiled.calendar.buildlogic.dsl.android
 import com.boiled.calendar.buildlogic.dsl.androidExtension
 import com.boiled.calendar.buildlogic.dsl.androidTestImplementation
 import com.boiled.calendar.buildlogic.dsl.debugImplementation
@@ -28,12 +31,9 @@ class ComposePlugin : Plugin<Project> {
                 includeTraceMarkers.set(!isRelease)
             }
 
-            androidExtension.apply {
-                buildFeatures.compose = true
-            }
-
             dependencies {
-                implementationPlatform(libs.library("compose-bom"))
+                add("implementation", platform(libs.findLibrary("compose-bom").get()))
+                implementation(libs.library("compose-foundation"))
                 implementation(libs.library("compose-ui"))
                 implementation(libs.library("compose-ui-graphics"))
                 implementation(libs.library("compose-ui-tooling-preview"))

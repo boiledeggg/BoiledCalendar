@@ -1,6 +1,7 @@
 package com.boiled.calendar.buildlogic.convention
 
 import com.android.build.api.dsl.LibraryExtension
+import com.boiled.calendar.buildlogic.dsl.androidExtension
 import com.boiled.calendar.buildlogic.dsl.configureAndroidLibrary
 import com.boiled.calendar.buildlogic.primitive.CommonAndroidPlugin
 import com.boiled.calendar.buildlogic.primitive.KotlinPlugin
