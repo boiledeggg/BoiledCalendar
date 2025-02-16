@@ -13,6 +13,7 @@ class TestPlugin : Plugin<Project> {
         with(target) {
             dependencies {
                 testImplementation(libs.library("junit"))
+                testImplementation(libs.library("kotlin-test"))
                 androidTestImplementation(libs.library("androidx-junit"))
                 androidTestImplementation(libs.library("androidx-espresso-core"))
             }
