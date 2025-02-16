@@ -19,7 +19,7 @@ import java.time.DayOfWeek
 import java.util.Locale
 
 @Composable
-internal fun WeekdaysHeader(
+fun WeekdaysHeader(
     modifier: Modifier = Modifier,
     locale: Locale = Locale.US,
     textStyle: TextStyle = MaterialTheme.typography.labelSmall,
