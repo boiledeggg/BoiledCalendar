@@ -28,6 +28,7 @@ ksp = "2.0.0-1.0.23"
 ## Kotlin
 kotlin = "2.0.0"
 kotlinxImmutable = "0.3.7"
+kotlinxDateTime = "0.6.2"
 serialization = "1.6.3"
 kotlinParcelize = "1.8.20"
 coroutine = "1.8.1"
@@ -73,6 +74,7 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutine" }
+kotlinx-datetime = {group="org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDateTime"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
