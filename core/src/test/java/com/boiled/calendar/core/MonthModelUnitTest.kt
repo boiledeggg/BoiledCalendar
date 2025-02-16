@@ -7,7 +7,7 @@ import java.time.LocalDate
 import java.time.YearMonth
 
 class MonthModelUnitTest {
-    lateinit var monthModel: MonthModel;
+    private lateinit var monthModel: MonthModel
 
     @Before
     fun setUp() {
@@ -24,7 +24,7 @@ class MonthModelUnitTest {
 
     @Test
     fun `check if correct DayModel is returned`() {
-        val dayModel = monthModel.calendarMonth[0][0];
+        val dayModel = monthModel.calendarMonth[0][0]
 
         assertEquals(LocalDate.of(2025, 1, 26), dayModel.date)
         assertEquals(true, dayModel.isOutDate)

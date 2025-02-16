@@ -53,7 +53,7 @@ class CalendarModel(
     )
 
     companion object {
-        const val YEAR_RANGE = 5;
-        const val MONTH_COUNT = 12;
+        const val YEAR_RANGE = 5
+        const val MONTH_COUNT = 12
     }
 }
