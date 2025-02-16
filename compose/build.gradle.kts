@@ -8,3 +8,7 @@ plugins {
 android {
     setNameSpace("calendar.compose")
 }
+
+dependencies {
+    implementation(project(":core"))
+}
