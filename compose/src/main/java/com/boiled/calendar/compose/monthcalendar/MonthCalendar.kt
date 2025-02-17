@@ -1,4 +1,4 @@
-package com.boiled.calendar.compose.month
+package com.boiled.calendar.compose.monthcalendar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope

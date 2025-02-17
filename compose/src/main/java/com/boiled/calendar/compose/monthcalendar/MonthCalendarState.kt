@@ -1,17 +1,16 @@
-package com.boiled.calendar.compose.month
+package com.boiled.calendar.compose.monthcalendar
 
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import com.boiled.calendar.compose.month.MonthCalendarState.Companion.MONTH_COUNT
-import com.boiled.calendar.compose.month.MonthCalendarState.Companion.YEAR_RANGE
+import com.boiled.calendar.compose.monthcalendar.MonthCalendarState.Companion.MONTH_COUNT
+import com.boiled.calendar.compose.monthcalendar.MonthCalendarState.Companion.YEAR_RANGE
 import com.boiled.calendar.core.MonthModel
 import java.time.Year
 import java.time.YearMonth
