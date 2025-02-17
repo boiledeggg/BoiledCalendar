@@ -19,6 +19,6 @@ class DayModelUnitTest {
         val today = LocalDate.of(2025, 1, 1)
         val dayModel = DayModel(date = today, isOutDate = false)
 
-        assertEquals("2025-01-01", dayModel.scrapMapKey,)
+        assertEquals("2025-01-01", dayModel.scrapMapKey)
     }
 }
