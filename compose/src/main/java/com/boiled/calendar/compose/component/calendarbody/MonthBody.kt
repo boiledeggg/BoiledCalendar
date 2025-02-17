@@ -37,7 +37,6 @@ import com.boiled.calendar.core.util.ifNull
  * @param monthModel [MonthModel] object which contains information of current month.
  * @param verticalInnerPadding Padding between weeks.
  * @param horizontalInnerPadding Padding between days.
- * @param monthBody composable receiving whole month content as parameter.
  * @param weekBody composable receiving a week content as parameter.
  * @param dayBody composable which represents a cell in the calendar table.
  */
