@@ -2,8 +2,10 @@ package com.boiled.calendar.compose.month
 
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -49,11 +51,11 @@ class MonthCalendarState(
     private var _endYear: Year by mutableStateOf(Year.of(endYear))
     val endYear: Year get() = _endYear
 
-    private var _currentYearMonth: YearMonth by mutableStateOf(getYearMonth(currentPage))
-    val currentYearMonth get() = _currentYearMonth
+    private var _currentYearMonth = derivedStateOf { getYearMonth(currentPage)}
+    val currentYearMonth get() = _currentYearMonth.value
 
-    private var _currentMonthModel: MonthModel by mutableStateOf(getMonthModel(currentPage))
-    val currentMonthModel get() = _currentMonthModel
+    private var _currentMonthModel = derivedStateOf { getMonthModel(currentPage)}
+    val currentMonthModel get() = _currentMonthModel.value
 
     /**
      * Returns the [YearMonth] for the given page.
