@@ -2,6 +2,7 @@ package com.boiled.calendar.buildlogic.dsl
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.TestedExtension
 import org.gradle.api.Project

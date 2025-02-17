@@ -1,3 +1,4 @@
+import com.boiled.calendar.buildlogic.dsl.implementation
 import com.boiled.calendar.buildlogic.dsl.setNameSpace
 
 plugins {
@@ -6,9 +7,9 @@ plugins {
 }
 
 android {
-    setNameSpace("calendar.compose")
+    setNameSpace("calendar.core")
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(libs.kotlinx.datetime)
 }
