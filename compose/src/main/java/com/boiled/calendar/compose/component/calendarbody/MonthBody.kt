@@ -23,23 +23,6 @@ import com.boiled.calendar.core.DayModel
 import com.boiled.calendar.core.MonthModel
 import com.boiled.calendar.core.util.ifNull
 
-/**
- * ## Customizable month calendar view
- *
- * This composable allows user to customize month calendar view.
- * Main customizing concept of this calendar is changing the design of Day Cells.
- *
- * To customize day cell, user can pass COMPOSABLE function to `dayBody` parameter.
- * By passing user customized cell, one can experience uniformly designed calendar.
- *
- * Rest of the parameters' explanations are given below
- *
- * @param monthModel [MonthModel] object which contains information of current month.
- * @param verticalInnerPadding Padding between weeks.
- * @param horizontalInnerPadding Padding between days.
- * @param weekBody composable receiving a week content as parameter.
- * @param dayBody composable which represents a cell in the calendar table.
- */
 
 @Composable
 internal fun MonthBody(
@@ -64,7 +47,7 @@ internal fun MonthBody(
                         dayBody?.invoke(this, day)
                             ?: DefaultDayBody(
                                 dayModel = day,
-                                modifier = Modifier.weight(1f)
+                                modifier = Modifier.weight(1f).fillMaxHeight()
                             )
                     }
                 }

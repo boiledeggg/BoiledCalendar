@@ -55,7 +55,7 @@ fun DefaultDayBody(
     }
 
     Box(
-        modifier = modifier.fillMaxHeight(),
+        modifier = modifier,
         contentAlignment = Alignment.TopCenter
     ) {
         Box(

@@ -18,6 +18,28 @@ import com.boiled.calendar.compose.component.header.WeekdaysHeader
 import com.boiled.calendar.core.DayModel
 import java.util.Locale
 
+/**
+ * ## Customizable and scrollable month calendar view
+ *
+ * This composable allows user to customize month calendar view.
+ * Main customizing concept of this calendar's customization is passing **customized day cell**.
+ *
+ * To customize day cell, user can pass COMPOSABLE function to `dayBody` parameter.
+ * By passing user customized cell, one can experience uniformly designed calendar.
+ *
+ * Rest of the parameters' explanations are given below
+ *
+ * @param calendarState [MonthCalendarState] object which contains information of current month.
+ * @param userScrollEnabled Whether user can scroll the calendar.
+ * @param verticalInnerPadding Padding between weeks.
+ * @param horizontalInnerPadding Padding between days.
+ * @param contentPadding Padding at the edge of the calendar.
+ * @param calendarHeader Composable which represents header of the calendar.
+ * @param monthHeader Composable which represents header of the month, mainly used to show weekdays name
+ * @param weekBody composable receiving a week content as parameter.
+ * @param dayBody composable which represents a cell in the calendar table.
+ */
+
 @Composable
 fun MonthCalendar(
     calendarState: MonthCalendarState,
