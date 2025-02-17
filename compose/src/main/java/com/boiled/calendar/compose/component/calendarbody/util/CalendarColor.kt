@@ -2,7 +2,7 @@ package com.boiled.calendar.compose.component.calendarbody.util
 
 import androidx.compose.ui.graphics.Color
 
-class DayBodyColor(
+data class CalendarColor(
     val containerColor: Color,
     val contentColor: Color,
     val selectedContainerColor: Color,
@@ -11,9 +11,10 @@ class DayBodyColor(
     val outDateContainerColor: Color,
     val todayContentColor: Color,
     val todayContainerColor: Color,
+    val sundayContentColor: Color,
 ) {
     companion object {
-        val dayBodyColorDefault = DayBodyColor(
+        val dayBodyColorDefault = CalendarColor(
             containerColor = Color.Transparent,
             contentColor = Color.Black,
             selectedContainerColor = Color.Green,
@@ -22,6 +23,7 @@ class DayBodyColor(
             outDateContainerColor = Color.Transparent,
             todayContentColor = Color.Black,
             todayContainerColor = Color.LightGray,
+            sundayContentColor = Color.Red,
         )
     }
 }

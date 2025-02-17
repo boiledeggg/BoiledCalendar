@@ -1,4 +1,4 @@
-package com.boiled.calendar.compose
+package com.boiled.calendar.compose.month
 
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
@@ -8,8 +8,8 @@ import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import com.boiled.calendar.compose.MonthCalendarState.Companion.MONTH_COUNT
-import com.boiled.calendar.compose.MonthCalendarState.Companion.YEAR_RANGE
+import com.boiled.calendar.compose.month.MonthCalendarState.Companion.MONTH_COUNT
+import com.boiled.calendar.compose.month.MonthCalendarState.Companion.YEAR_RANGE
 import com.boiled.calendar.core.MonthModel
 import java.time.Year
 import java.time.YearMonth
@@ -48,7 +48,6 @@ class MonthCalendarState(
 
     private var _endYear: Year by mutableStateOf(Year.of(endYear))
     val endYear: Year get() = _endYear
-
 
     private var _currentYearMonth: YearMonth by mutableStateOf(getYearMonth(currentPage))
     val currentYearMonth get() = _currentYearMonth

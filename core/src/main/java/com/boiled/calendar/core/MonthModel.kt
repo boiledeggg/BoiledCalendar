@@ -1,9 +1,9 @@
 package com.boiled.calendar.core
 
-import androidx.compose.runtime.Stable
+import androidx.compose.runtime.Immutable
 import java.time.YearMonth
 
-@Stable
+@Immutable
 data class MonthModel(
     val yearMonth: YearMonth
 ) {

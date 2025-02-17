@@ -26,19 +26,12 @@ fun WeekdaysHeader(
     sundayColor: Color = Color.Red,
     weekdayColor: Color = Color.Black,
     containerColor: Color = Color.White,
-    contentPadding: PaddingValues? = null,
+    contentPadding: PaddingValues = PaddingValues(),
 ) {
-    val paddingValue = remember {
-        contentPadding ?: PaddingValues(
-            horizontal = 20.dp,
-            vertical = 18.dp
-        )
-    }
-
     Row(
         modifier = modifier
             .background(containerColor)
-            .padding(paddingValue),
+            .padding(contentPadding),
     ) {
         DayOfWeek.entries.forEach { day ->
             Text(
