@@ -2,6 +2,8 @@ package com.boiled.calendar.sample.month
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
@@ -25,7 +27,8 @@ internal fun SampleMonthCalendarScreen(
     ) {
         items(routes) {  route ->
             Button(
-                onClick = { onClick(route) }
+                onClick = { onClick(route) },
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)
             ) {
                 Text(text = "Move to ${route::class.simpleName}")
             }

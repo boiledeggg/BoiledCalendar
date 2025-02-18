@@ -37,7 +37,7 @@ internal fun SampleScreen(
         }
 
         monthNavGraph (
-            navigateToDesignatedCalendar = {}
+            navigateToDesignatedCalendar = navController::navigate
         )
 
         weekNavGraph(

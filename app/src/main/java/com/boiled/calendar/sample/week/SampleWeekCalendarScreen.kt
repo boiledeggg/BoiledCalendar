@@ -21,16 +21,6 @@ internal fun SampleWeekCalendarScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically)
     ) {
-        Button(
-            onClick = onMonthNavigate
-        ) {
-            Text(text = "Move to Month Calendar Sample")
-        }
-
-        Button(
-            onClick = onWeekNavigate
-        ) {
-            Text(text = "Move to Month Week Sample")
-        }
+        Text(text = "coming soon")
     }
 }
