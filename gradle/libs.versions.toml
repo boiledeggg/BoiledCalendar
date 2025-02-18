@@ -19,7 +19,7 @@ jetbrainsKotlinJvm = "2.0.0"
 
 ## Compose
 composeBom = "2025.01.01"
-composeNavigation = "2.8.6"
+composeNavigation = "2.8.7"
 kotlinCompilerExtensionVersion = "1.5.2"
 
 ## Kotlin Symbol Processing
