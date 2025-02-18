@@ -11,7 +11,10 @@ android {
 
 dependencies {
     implementation(project(":compose"))
+    implementation(project(":core"))
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
+    implementation(libs.androidx.navigation.compose)
 }
