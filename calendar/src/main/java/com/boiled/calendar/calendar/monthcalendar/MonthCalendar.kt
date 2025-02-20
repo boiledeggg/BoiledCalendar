@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.boiled.calendar.calendar.component.calendarbody.MonthBody
 import com.boiled.calendar.calendar.component.header.WeekdaysHeader
-import com.boiled.calendar.core.DayModel
+import com.boiled.calendar.calendar.model.DayModel
 import java.util.Locale
 
 /**

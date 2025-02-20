@@ -1,4 +1,4 @@
-package com.boiled.calendar.core
+package com.boiled.calendar.calendar.model
 
 import androidx.compose.runtime.Immutable
 import java.time.YearMonth

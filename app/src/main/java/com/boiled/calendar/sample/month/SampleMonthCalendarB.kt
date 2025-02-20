@@ -37,7 +37,7 @@ import com.boiled.calendar.calendar.component.header.WeekdaysHeader
 import com.boiled.calendar.calendar.monthcalendar.MonthCalendar
 import com.boiled.calendar.calendar.monthcalendar.MonthCalendarState
 import com.boiled.calendar.calendar.monthcalendar.rememberMonthCalendarState
-import com.boiled.calendar.core.DayModel
+import com.boiled.calendar.calendar.model.DayModel
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.util.Locale

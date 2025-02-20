@@ -1,7 +1,7 @@
-package com.boiled.calendar.core
+package com.boiled.calendar.calendar.model
 
 import androidx.compose.runtime.Stable
-import com.boiled.calendar.core.util.getFormattedString
+import com.boiled.calendar.calendar.model.util.getFormattedString
 import java.time.LocalDate
 
 @Stable

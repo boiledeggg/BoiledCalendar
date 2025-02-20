@@ -1,4 +1,4 @@
-package com.boiled.calendar.core.util
+package com.boiled.calendar.calendar.model.util
 
 /**
  * Method to check if element is null. If yes, it returns default element given as parameter

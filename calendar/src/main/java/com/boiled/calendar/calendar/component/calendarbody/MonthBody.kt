@@ -19,9 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.boiled.calendar.calendar.monthcalendar.rememberMonthCalendarState
-import com.boiled.calendar.core.DayModel
-import com.boiled.calendar.core.MonthModel
-import com.boiled.calendar.core.util.ifNull
+import com.boiled.calendar.calendar.model.DayModel
+import com.boiled.calendar.calendar.model.MonthModel
+import com.boiled.calendar.calendar.model.util.ifNull
 
 
 @Composable

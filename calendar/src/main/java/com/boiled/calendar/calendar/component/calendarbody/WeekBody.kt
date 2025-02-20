@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.boiled.calendar.core.DayModel
-import com.boiled.calendar.core.MonthModel
+import com.boiled.calendar.calendar.model.DayModel
+import com.boiled.calendar.calendar.model.MonthModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import java.time.YearMonth

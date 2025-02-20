@@ -9,7 +9,7 @@ import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import com.boiled.calendar.core.MonthModel
+import com.boiled.calendar.calendar.model.MonthModel
 import java.time.LocalDate
 import java.time.YearMonth
 

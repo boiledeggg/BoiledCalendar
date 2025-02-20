@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import com.boiled.calendar.calendar.component.calendarbody.DefaultDayBody
 import com.boiled.calendar.calendar.component.calendarbody.WeekBody
 import com.boiled.calendar.calendar.component.header.WeekdaysHeader
-import com.boiled.calendar.core.DayModel
-import com.boiled.calendar.core.util.ifNull
+import com.boiled.calendar.calendar.model.DayModel
+import com.boiled.calendar.calendar.model.util.ifNull
 import kotlinx.collections.immutable.toImmutableList
 import java.util.Locale
 

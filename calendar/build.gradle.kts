@@ -48,6 +48,3 @@ mavenPublishing {
 }
 
 
-dependencies {
-    api(project(":core"))
-}

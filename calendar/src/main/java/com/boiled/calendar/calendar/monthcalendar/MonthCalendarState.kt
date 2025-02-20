@@ -11,7 +11,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import com.boiled.calendar.calendar.monthcalendar.MonthCalendarState.Companion.MONTH_COUNT
 import com.boiled.calendar.calendar.monthcalendar.MonthCalendarState.Companion.YEAR_RANGE
-import com.boiled.calendar.core.MonthModel
+import com.boiled.calendar.calendar.model.MonthModel
 import java.time.Year
 import java.time.YearMonth
 
