@@ -97,8 +97,8 @@ class MonthCalendarState(
             restore = {
                 MonthCalendarState(
                     startYear = (it[0] as Year).value,
-                    endYear = (it[0] as Year).value,
-                    currentYearMonth = (it[0] as YearMonth),
+                    endYear = (it[1] as Year).value,
+                    currentYearMonth = (it[2] as YearMonth),
                     pageCount = it[3] as Int,
                 )
             },

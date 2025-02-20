@@ -69,7 +69,7 @@ class WeekCalendarState(
             restore = {
                 WeekCalendarState(
                     currentDate = it[0] as LocalDate,
-                    pageCount = it[2] as Int,
+                    pageCount = it[1] as Int,
                 )
             }
         )
