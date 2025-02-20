@@ -23,5 +23,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Calendar"
 include(":app")
-include(":compose")
+include(":calendar")
 include(":core")
