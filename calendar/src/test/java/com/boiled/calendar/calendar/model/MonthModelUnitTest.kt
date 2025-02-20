@@ -1,6 +1,5 @@
-package com.boiled.calendar.calendar
+package com.boiled.calendar.calendar.model
 
-import com.boiled.calendar.calendar.model.MonthModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

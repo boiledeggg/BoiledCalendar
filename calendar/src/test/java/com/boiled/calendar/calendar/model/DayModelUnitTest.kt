@@ -1,6 +1,5 @@
-package com.boiled.calendar.calendar
+package com.boiled.calendar.calendar.model
 
-import com.boiled.calendar.calendar.model.DayModel
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 import java.time.LocalDate
