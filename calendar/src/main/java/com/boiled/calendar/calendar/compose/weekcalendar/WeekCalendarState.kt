@@ -13,6 +13,26 @@ import com.boiled.calendar.calendar.model.MonthModel
 import java.time.LocalDate
 import java.time.YearMonth
 
+/**
+ * stores and maintains WeekCalendarState
+ *
+ * It can be used in Pagers as a PagerState, since it implements PagerState.
+ * ```
+ * @Composable
+ * fun WeekCalendar() {
+ *      val calendarState = rememberWeekCalendarState()
+ *      HorizontalPager(
+ *          state = calendarState,
+ *      ) { page ->
+ *          // contents
+ *      }
+ * }
+ * ```
+ * @param currentDate date to initialize week calendar. Month and week to be shown will be decided by this value.
+ *
+ * @return [WeekCalendarState]
+ */
+
 @Composable
 fun rememberWeekCalendarState(
     currentDate: LocalDate = LocalDate.now(),
