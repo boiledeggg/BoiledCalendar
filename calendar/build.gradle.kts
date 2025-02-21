@@ -14,52 +14,17 @@ val properties = Properties().apply {
 
 android {
     setNameSpace("calendar.compose")
-
-    buildTypes {
-        debug {
-            buildConfigField(
-                "String",
-                "mavenCentralUsername",
-                properties.getProperty("mavenCentralUsername")
-            )
-
-            buildConfigField(
-                "String",
-                "mavenCentralPassword",
-                properties.getProperty("mavenCentralPassword")
-            )
-
-            buildConfigField(
-                "String",
-                "signingKeyId",
-                properties.getProperty("signing.keyId")
-            )
-
-            buildConfigField(
-                "String",
-                "signingPassword",
-                properties.getProperty("signing.password")
-            )
-
-            buildConfigField(
-                "String",
-                "signingSecretKeyRingFile",
-                properties.getProperty("signing.secretKeyRingFile")
-            )
-        }
-    }
 }
 
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-
     signAllPublications()
 
-    coordinates("io.github.boiledeggg", "boiled-calendar", libs.versions.versionName.get())
+    coordinates("io.github.boiledeggg", "calendar", libs.versions.versionName.get())
 
     pom {
-        name.set("Boiled Calendar")
-        description.set("Compose Calendar")
+        name.set("Boiled-Calendar")
+        description.set("Customizable Jetpack Compose Calendar")
         url.set("https://github.com/boiledeggg/BoiledCalendar")
         inceptionYear.set("2025")
 
@@ -85,6 +50,3 @@ mavenPublishing {
         }
     }
 }
-
-
-
