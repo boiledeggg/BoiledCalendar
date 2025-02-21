@@ -1,4 +1,4 @@
-package com.boiled.calendar.core
+package com.boiled.calendar.calendar.model
 
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -7,11 +7,11 @@ import java.time.LocalDate
 import java.time.YearMonth
 
 class MonthModelUnitTest {
-    private lateinit var monthModel: com.boiled.calendar.core.MonthModel
+    private lateinit var monthModel: MonthModel
 
     @Before
     fun setUp() {
-        monthModel = com.boiled.calendar.core.MonthModel(yearMonth = YearMonth.of(2025, 2))
+        monthModel = MonthModel(yearMonth = YearMonth.of(2025, 2))
     }
 
     @Test

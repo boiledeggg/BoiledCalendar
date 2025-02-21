@@ -10,8 +10,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":compose"))
-    implementation(project(":core"))
+    implementation(project(":calendar"))
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

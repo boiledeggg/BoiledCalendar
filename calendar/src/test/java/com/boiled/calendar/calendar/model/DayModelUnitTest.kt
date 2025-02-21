@@ -1,4 +1,4 @@
-package com.boiled.calendar.core
+package com.boiled.calendar.calendar.model
 
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
@@ -9,7 +9,7 @@ class DayModelUnitTest {
     @Test
     fun `check whether the day is today`() {
         val today = LocalDate.now()
-        val dayModel = com.boiled.calendar.core.DayModel(date = today, isOutDate = false)
+        val dayModel = DayModel(date = today, isOutDate = false)
 
         assert(dayModel.isToday)
     }
@@ -17,7 +17,7 @@ class DayModelUnitTest {
     @Test
     fun `check if scrapMapKey is in correct format`() {
         val today = LocalDate.of(2025, 1, 1)
-        val dayModel = com.boiled.calendar.core.DayModel(date = today, isOutDate = false)
+        val dayModel = DayModel(date = today, isOutDate = false)
 
         assertEquals("2025-01-01", dayModel.scrapMapKey)
     }

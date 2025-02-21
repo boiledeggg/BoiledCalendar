@@ -1,4 +1,3 @@
-import com.boiled.calendar.buildlogic.dsl.implementation
 import com.boiled.calendar.buildlogic.dsl.setNameSpace
 
 plugins {
