@@ -6,7 +6,6 @@
 ## Gradle Settings
 /build
 .gradle
-gradle.properties
 
 ## IDE Settings
 *.iml
