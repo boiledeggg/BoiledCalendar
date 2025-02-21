@@ -6,12 +6,14 @@
 ## Gradle Settings
 /build
 .gradle
+gradle.properties
 
 ## IDE Settings
 *.iml
 *.iws
 /out/
 .idea/
+~/.idea
 
 ## Secrets
 /local.properties
