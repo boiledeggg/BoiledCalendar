@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.component.calendarbody.util
+package com.boiled.calendar.calendar.compose.component.calendarbody.util
 
 import androidx.compose.ui.graphics.Color
 

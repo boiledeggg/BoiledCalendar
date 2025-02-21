@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.monthcalendar
+package com.boiled.calendar.calendar.compose.monthcalendar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.boiled.calendar.calendar.component.calendarbody.MonthBody
-import com.boiled.calendar.calendar.component.header.WeekdaysHeader
+import com.boiled.calendar.calendar.compose.component.calendarbody.MonthBody
+import com.boiled.calendar.calendar.compose.component.header.WeekdaysHeader
 import com.boiled.calendar.calendar.model.DayModel
 import java.util.Locale
 

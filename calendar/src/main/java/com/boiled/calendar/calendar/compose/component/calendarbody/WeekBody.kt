@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.component.calendarbody
+package com.boiled.calendar.calendar.compose.component.calendarbody
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.component.calendarbody
+package com.boiled.calendar.calendar.compose.component.calendarbody
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.boiled.calendar.calendar.monthcalendar.rememberMonthCalendarState
+import com.boiled.calendar.calendar.compose.monthcalendar.rememberMonthCalendarState
 import com.boiled.calendar.calendar.model.DayModel
 import com.boiled.calendar.calendar.model.MonthModel
 import com.boiled.calendar.calendar.model.util.ifNull

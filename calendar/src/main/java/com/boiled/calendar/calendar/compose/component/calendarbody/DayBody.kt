@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.component.calendarbody
+package com.boiled.calendar.calendar.compose.component.calendarbody
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.boiled.calendar.calendar.component.calendarbody.util.CalendarColor
+import com.boiled.calendar.calendar.compose.component.calendarbody.util.CalendarColor
 import com.boiled.calendar.calendar.model.DayModel
 import java.time.LocalDate
 

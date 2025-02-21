@@ -32,11 +32,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.boiled.calendar.calendar.component.calendarbody.util.CalendarColor
-import com.boiled.calendar.calendar.component.header.WeekdaysHeader
-import com.boiled.calendar.calendar.monthcalendar.MonthCalendar
-import com.boiled.calendar.calendar.monthcalendar.MonthCalendarState
-import com.boiled.calendar.calendar.monthcalendar.rememberMonthCalendarState
+import com.boiled.calendar.calendar.compose.component.calendarbody.util.CalendarColor
+import com.boiled.calendar.calendar.compose.component.header.WeekdaysHeader
+import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendar
+import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendarState
+import com.boiled.calendar.calendar.compose.monthcalendar.rememberMonthCalendarState
 import com.boiled.calendar.calendar.model.DayModel
 import kotlinx.coroutines.launch
 import java.time.LocalDate

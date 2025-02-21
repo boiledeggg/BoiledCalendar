@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.weekcalendar
+package com.boiled.calendar.calendar.compose.weekcalendar
 
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable

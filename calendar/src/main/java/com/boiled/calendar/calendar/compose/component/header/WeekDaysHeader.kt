@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.component.header
+package com.boiled.calendar.calendar.compose.component.header
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
