@@ -1,5 +1,6 @@
 import com.boiled.calendar.buildlogic.dsl.setNameSpace
 import com.vanniktech.maven.publish.SonatypeHost
+import java.util.Properties
 
 plugins {
     id("com.boiled.calendar.buildlogic.convention.compose")
@@ -7,8 +8,46 @@ plugins {
     alias(libs.plugins.maven)
 }
 
+val properties = Properties().apply {
+    load(rootProject.file("local.properties").inputStream())
+}
+
 android {
     setNameSpace("calendar.compose")
+
+    buildTypes {
+        debug {
+            buildConfigField(
+                "String",
+                "mavenCentralUsername",
+                properties.getProperty("mavenCentralUsername")
+            )
+
+            buildConfigField(
+                "String",
+                "mavenCentralPassword",
+                properties.getProperty("mavenCentralPassword")
+            )
+
+            buildConfigField(
+                "String",
+                "signingKeyId",
+                properties.getProperty("signing.keyId")
+            )
+
+            buildConfigField(
+                "String",
+                "signingPassword",
+                properties.getProperty("signing.password")
+            )
+
+            buildConfigField(
+                "String",
+                "signingSecretKeyRingFile",
+                properties.getProperty("signing.secretKeyRingFile")
+            )
+        }
+    }
 }
 
 mavenPublishing {
@@ -21,7 +60,7 @@ mavenPublishing {
     pom {
         name.set("Boiled Calendar")
         description.set("Compose Calendar")
-        url.set("https://github.com/boiledeggg/BiledCalendar")
+        url.set("https://github.com/boiledeggg/BoiledCalendar")
         inceptionYear.set("2025")
 
         licenses {
@@ -46,5 +85,6 @@ mavenPublishing {
         }
     }
 }
+
 
 
