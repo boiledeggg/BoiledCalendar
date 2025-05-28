@@ -17,15 +17,15 @@ class WeekCalendarStateTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()
+    private val stateRestorationTester = StateRestorationTester(composeTestRule)
 
     @Test
     fun weekCalendarState_SavableRestored_afterConfiguration() {
-        val stateRestorationTester = StateRestorationTester(composeTestRule)
         val expectedPage = 2
 
+        //given
         stateRestorationTester.setContent {
             state = rememberWeekCalendarState()
-
             Column {
                 WeekCalendar(
                     calendarState = state,
@@ -41,15 +41,16 @@ class WeekCalendarStateTest {
             }
         }
 
+        // when
         composeTestRule.runOnUiThread {
             runBlocking {
                 state.scrollToPage(expectedPage)
             }
         }
-
         stateRestorationTester.emulateSavedInstanceStateRestore()
         composeTestRule.waitForIdle()
 
+        // then
         assertEquals(expectedPage, state.currentPage)
     }
 }

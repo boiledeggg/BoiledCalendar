@@ -18,15 +18,14 @@ class MonthCalendarStateTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()
+    private val stateRestorationTester = StateRestorationTester(composeTestRule)
 
     @Test
     fun monthCalendarState_SavableRestored_afterConfiguration() {
-        val stateRestorationTester = StateRestorationTester(composeTestRule)
+        // given
         val yearMonth = YearMonth.of(2026, 4)
-
         stateRestorationTester.setContent {
             state = rememberMonthCalendarState(currentYearMonth = yearMonth)
-
             Column {
                 MonthCalendar(
                     calendarState = state,
@@ -42,15 +41,16 @@ class MonthCalendarStateTest {
             }
         }
 
+        // when
         composeTestRule.runOnUiThread {
             runBlocking {
                 state.scrollToPage(state.currentPage + 1)
             }
         }
-
         stateRestorationTester.emulateSavedInstanceStateRestore()
         composeTestRule.waitForIdle()
 
+        // then
         assertEquals(yearMonth.plusMonths(1), state.currentYearMonth)
     }
 }
