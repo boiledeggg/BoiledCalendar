@@ -42,19 +42,20 @@ fun rememberWeekCalendarState(
     saver = WeekCalendarState.Saver
 ) {
     val monthModel = MonthModel(yearMonth = YearMonth.of(currentDate.year, currentDate.month))
+    val initialPage = run {
+        var page = 0
+        monthModel.calendarMonth.forEachIndexed { index, week ->
+            if (week.any { dayModel -> dayModel.date == currentDate }) {
+                page = index
+                return@forEachIndexed
+            }
+        }
+        page
+    }
 
     val weekCalendarState = WeekCalendarState(
         currentDate = currentDate,
-        initialPage = run {
-            var page = 0
-            for (i in monthModel.calendarMonth) {
-                if (i.any { it.date == currentDate }) {
-                    page = monthModel.calendarMonth.indexOf(i)
-                    break
-                }
-            }
-            page
-        },
+        initialPage = initialPage,
         pageCount = monthModel.calendarMonth.size,
     )
     weekCalendarState
