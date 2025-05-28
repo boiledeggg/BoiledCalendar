@@ -4,10 +4,10 @@ import com.android.build.gradle.BaseExtension
 import com.boiled.calendar.buildlogic.dsl.implementation
 import com.boiled.calendar.buildlogic.dsl.library
 import com.boiled.calendar.buildlogic.dsl.libs
+import com.boiled.calendar.buildlogic.dsl.testImplementation
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
@@ -39,6 +39,8 @@ class KotlinPlugin : Plugin<Project> {
                 implementation(libs.library("kotlinx-coroutines-android"))
                 implementation(libs.library("kotlinx-immutable"))
                 implementation(libs.library("kotlinx-serialization-json"))
+
+                testImplementation(libs.library("kotlinx-coroutines-test"))
             }
         }
 
