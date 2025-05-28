@@ -9,8 +9,8 @@ import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendarState.Companion.MONTH_COUNT
-import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendarState.Companion.YEAR_RANGE
+import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendarDefaults.defaultEndYear
+import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendarDefaults.defaultStartYear
 import com.boiled.calendar.calendar.model.MonthModel
 import java.time.Year
 import java.time.YearMonth
@@ -40,9 +40,9 @@ import java.time.YearMonth
 
 @Composable
 fun rememberMonthCalendarState(
-    startYear: Int = YearMonth.now().year - YEAR_RANGE,
-    endYear: Int = YearMonth.now().year + YEAR_RANGE,
     currentYearMonth: YearMonth = YearMonth.now(),
+    startYear: Int = defaultStartYear(currentYearMonth),
+    endYear: Int = defaultEndYear(currentYearMonth),
 ): MonthCalendarState = rememberSaveable(
     inputs = arrayOf(
         startYear,
@@ -55,7 +55,7 @@ fun rememberMonthCalendarState(
         startYear = startYear,
         endYear = endYear,
         currentYearMonth = currentYearMonth,
-        pageCount = (endYear - startYear + 1) * MONTH_COUNT,
+        pageCount = calculatePageCount(startYear, endYear),
     )
 }
 
@@ -69,12 +69,16 @@ fun rememberMonthCalendarState(
  */
 
 class MonthCalendarState(
+    currentYearMonth: YearMonth,
     startYear: Int,
     endYear: Int,
-    currentYearMonth: YearMonth,
     override val pageCount: Int,
 ) : PagerState(
-    currentPage = (currentYearMonth.year - startYear) * MONTH_COUNT + currentYearMonth.monthValue - 1
+    currentPage = calculateCurrentPage(
+        currentYear = currentYearMonth.year,
+        currentMonth = currentYearMonth.monthValue,
+        startYear = startYear
+    )
 ) {
     private var _startYear: Year by mutableStateOf(Year.of(startYear))
     val startYear: Year get() = _startYear
@@ -111,8 +115,8 @@ class MonthCalendarState(
      * Returns the [YearMonth] for the given page.
      */
     fun getYearMonth(page: Int): YearMonth = YearMonth.of(
-        startYear.value + page / MONTH_COUNT,
-        page % MONTH_COUNT + 1,
+        startYear.value + page / 12,
+        page % 12 + 1,
     )
 
 
@@ -135,8 +139,16 @@ class MonthCalendarState(
                 )
             },
         )
-
-        const val YEAR_RANGE = 5
-        const val MONTH_COUNT = 12
     }
 }
+
+private fun calculatePageCount(
+    startYear: Int,
+    endYear: Int,
+) = (endYear - startYear + 1) * 12
+
+private fun calculateCurrentPage(
+    currentYear: Int,
+    currentMonth: Int,
+    startYear: Int
+): Int = (currentYear - startYear) * 12 + (currentMonth - 1)
