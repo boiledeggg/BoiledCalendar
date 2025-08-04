@@ -18,7 +18,6 @@ import com.boiled.calendar.calendar.compose.component.calendarbody.DefaultDayBod
 import com.boiled.calendar.calendar.compose.component.calendarbody.WeekBody
 import com.boiled.calendar.calendar.compose.component.header.WeekdaysHeader
 import com.boiled.calendar.calendar.model.DayModel
-import com.boiled.calendar.calendar.model.util.ifNull
 import kotlinx.collections.immutable.toImmutableList
 import java.util.Locale
 
@@ -50,10 +49,10 @@ fun WeekCalendar(
     userScrollEnabled: Boolean = true,
     horizontalInnerPadding: Dp = 0.dp,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    calendarHeader: (@Composable ColumnScope.(WeekCalendarState) -> Unit)?,
-    weekHeader: (@Composable ColumnScope.(WeekCalendarState) -> Unit)?,
-    weekBody: (@Composable PagerScope.(List<DayModel>, content: @Composable () -> Unit) -> Unit)?,
-    dayBody: (@Composable RowScope.(DayModel) -> Unit)?,
+    calendarHeader: (@Composable ColumnScope.(WeekCalendarState) -> Unit)? = null,
+    weekHeader: (@Composable ColumnScope.(WeekCalendarState) -> Unit)? = null,
+    weekBody: (@Composable PagerScope.(List<DayModel>, content: @Composable () -> Unit) -> Unit)? = null,
+    dayBody: (@Composable RowScope.(DayModel) -> Unit)? = null,
 ) {
     Column(
         modifier = modifier.fillMaxSize()
@@ -69,7 +68,7 @@ fun WeekCalendar(
         ) { page ->
             val week = calendarState.monthModel.calendarMonth[page]
 
-            weekBody.ifNull(defaultWeekBody)(week) {
+            weekBody?.invoke(this, week) {
                 WeekBody(
                     week = week.toImmutableList(),
                     horizontalInnerPadding = horizontalInnerPadding,
@@ -79,10 +78,6 @@ fun WeekCalendar(
         }
     }
 }
-
-// Default implementation of Composable Bodies if not provided
-private val defaultWeekBody: (@Composable PagerScope.(List<DayModel>, content: @Composable () -> Unit) -> Unit) =
-    { _, content -> content() }
 
 @Preview(showBackground = true)
 @Composable

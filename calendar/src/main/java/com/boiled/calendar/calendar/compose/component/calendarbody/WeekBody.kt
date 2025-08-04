@@ -21,7 +21,7 @@ internal fun WeekBody(
     week: ImmutableList<DayModel>,
     modifier: Modifier = Modifier,
     horizontalInnerPadding: Dp = 0.dp,
-    dayBody: (@Composable RowScope.(DayModel) -> Unit)?,
+    dayBody: (@Composable RowScope.(DayModel) -> Unit)? = null,
 ) {
     Row(
         modifier = modifier,
@@ -31,7 +31,9 @@ internal fun WeekBody(
             dayBody?.invoke(this, day)
                 ?: DefaultDayBody(
                     dayModel = day,
-                    modifier = Modifier.weight(1f).fillMaxHeight()
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
                 )
         }
     }

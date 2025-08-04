@@ -1,15 +1,10 @@
 import com.boiled.calendar.buildlogic.dsl.setNameSpace
 import com.vanniktech.maven.publish.SonatypeHost
-import java.util.Properties
 
 plugins {
     id("com.boiled.calendar.buildlogic.convention.compose")
     id("com.boiled.calendar.buildlogic.primitive.test")
     alias(libs.plugins.maven)
-}
-
-val properties = Properties().apply {
-    load(rootProject.file("local.properties").inputStream())
 }
 
 android {
@@ -20,7 +15,7 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
-    coordinates("io.github.boiledeggg", "calendar", libs.versions.versionName.get())
+    coordinates("io.github.boiledeggg", "boiled-calendar", libs.versions.versionName.get())
 
     pom {
         name.set("Boiled-Calendar")
