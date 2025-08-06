@@ -51,8 +51,6 @@ fun SampleMonthCalendarA(
         modifier = modifier
             .fillMaxSize()
             .background(Color.White),
-        weekBody = null,
-        dayBody = null,
         monthHeader = { SampleMonthHeader() },
         calendarHeader = { SampleCalendarHeader(it) },
     )

@@ -61,7 +61,6 @@ fun SampleMonthCalendarB(
         modifier = modifier
             .fillMaxSize()
             .background(Color.White),
-        weekBody = null,
         dayBody = {
             SampleDayBody(
                 dayModel = it,
