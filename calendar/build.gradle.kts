@@ -15,7 +15,7 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
-    coordinates("io.github.boiledeggg", "boiled-calendar", libs.versions.versionName.get())
+    coordinates("io.github.boiledeggg", "boiled-calendar-compose", libs.versions.versionName.get())
 
     pom {
         name.set("Boiled-Calendar")
