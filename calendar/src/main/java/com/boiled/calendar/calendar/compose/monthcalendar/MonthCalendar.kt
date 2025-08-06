@@ -48,10 +48,10 @@ fun MonthCalendar(
     verticalInnerPadding: Dp = 0.dp,
     horizontalInnerPadding: Dp = 0.dp,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    calendarHeader: (@Composable ColumnScope.(MonthCalendarState) -> Unit)?,
-    monthHeader: (@Composable ColumnScope.(MonthCalendarState) -> Unit)?,
-    weekBody: (@Composable ColumnScope.(List<DayModel>, content: @Composable () -> Unit) -> Unit)?,
-    dayBody: (@Composable RowScope.(DayModel) -> Unit)?,
+    calendarHeader: (@Composable ColumnScope.(MonthCalendarState) -> Unit)? = null,
+    monthHeader: (@Composable ColumnScope.(MonthCalendarState) -> Unit)? = null,
+    weekBody: (@Composable ColumnScope.(List<DayModel>, content: @Composable () -> Unit) -> Unit)? = null,
+    dayBody: (@Composable RowScope.(DayModel) -> Unit)? = null,
 ) {
     Column(
         modifier = modifier.fillMaxSize()
