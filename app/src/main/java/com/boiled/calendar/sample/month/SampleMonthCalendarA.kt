@@ -33,7 +33,7 @@ import java.util.Locale
  * ### Sample Calendar A: Default Month Calendar View
  *
  * This calendar is default month calendar of this library, created when no parameter is passed
- * for weekBody and dayBody. No design is assign to this calendar.
+ * for any composable component. No design is assign to this calendar.
  *
  * Simple headers are added to mock general calendars.
  * Check out [SampleCalendarHeader], you can find out how to manipulate pagerState of this calendar.
@@ -47,12 +47,9 @@ fun SampleMonthCalendarA(
 
     MonthCalendar(
         calendarState = calendarState,
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 20.dp),
         modifier = modifier
             .fillMaxSize()
-            .background(Color.White),
-        monthHeader = { SampleMonthHeader() },
-        calendarHeader = { SampleCalendarHeader(it) },
+            .background(Color.White)
     )
 }
 
