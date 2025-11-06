@@ -1,4 +1,4 @@
-package com.boiled.calendar.calendar.model.util
+package com.boiled.calendar.calendar.util
 
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
