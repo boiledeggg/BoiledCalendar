@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 import com.boiled.calendar.calendar.compose.component.calendarbody.MonthBody
 import com.boiled.calendar.calendar.compose.component.header.WeekdaysHeader
 import com.boiled.calendar.calendar.model.DayModel
-import java.util.Locale
 
 /**
  * ## Customizable and scrollable month calendar view
@@ -60,7 +59,7 @@ fun MonthCalendar(
         monthHeader?.invoke(this, calendarState)
 
         HorizontalPager(
-            state = calendarState,
+            state = calendarState.pagerState,
             userScrollEnabled = userScrollEnabled,
             contentPadding = contentPadding
         ) { page ->
@@ -85,7 +84,6 @@ private fun MonthCalendarPreview() {
         weekBody = null,
         monthHeader = {
             WeekdaysHeader(
-                locale = Locale.KOREA,
                 modifier = Modifier.padding(vertical = 20.dp)
             )
             HorizontalDivider()

@@ -13,13 +13,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import java.time.DayOfWeek
-import java.util.Locale
+import kotlinx.datetime.DayOfWeek
 
+//Default WeekDays Header for Calendar.
+//Weekday name is fixed in US locale.
 @Composable
 fun WeekdaysHeader(
     modifier: Modifier = Modifier,
-    locale: Locale = Locale.US,
     textStyle: TextStyle = MaterialTheme.typography.labelSmall,
     sundayColor: Color = Color.Red,
     weekdayColor: Color = Color.Black,
@@ -34,7 +34,7 @@ fun WeekdaysHeader(
         DayOfWeek.entries.forEach { day ->
             Text(
                 modifier = Modifier.weight(1f),
-                text = day.getDisplayName(java.time.format.TextStyle.SHORT, locale),
+                text = day.nameInUS(),
                 style = textStyle,
                 color = if (day == DayOfWeek.SUNDAY) sundayColor else weekdayColor,
                 textAlign = TextAlign.Center
@@ -43,28 +43,24 @@ fun WeekdaysHeader(
     }
 }
 
+internal fun DayOfWeek.nameInUS(upperCase: Boolean = false): String {
+    var text: String = when (this) {
+        DayOfWeek.MONDAY -> "mon"
+        DayOfWeek.TUESDAY -> "tues"
+        DayOfWeek.WEDNESDAY -> "wed"
+        DayOfWeek.THURSDAY -> "thurs"
+        DayOfWeek.FRIDAY -> "fri"
+        DayOfWeek.SATURDAY -> "sat"
+        DayOfWeek.SUNDAY -> "sun"
+    }
+    if (upperCase) text = text.uppercase()
+    return text
+}
+
 @Preview(showBackground = true, name = "Weekdays Header US")
 @Composable
 fun WeekDaysHeaderUsPreview1() {
     WeekdaysHeader(
         modifier = Modifier.fillMaxWidth(),
-    )
-}
-
-@Preview(showBackground = true, name = "Weekdays Header KOR")
-@Composable
-fun WeekDaysHeaderKorPreview2() {
-    WeekdaysHeader(
-        modifier = Modifier.fillMaxWidth(),
-        locale = Locale.KOREA
-    )
-}
-
-@Preview(showBackground = true, name = "Weekdays Header CHN")
-@Composable
-fun WeekDaysHeaderChnPreview() {
-    WeekdaysHeader(
-        modifier = Modifier.fillMaxWidth(),
-        locale = Locale.CHINA
     )
 }

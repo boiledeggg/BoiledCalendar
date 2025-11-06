@@ -20,7 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.boiled.calendar.calendar.compose.component.calendarbody.util.CalendarColor
 import com.boiled.calendar.calendar.model.DayModel
-import java.time.LocalDate
+import com.boiled.calendar.calendar.util.now
+import kotlinx.datetime.LocalDate
 
 /**
  * Customizable Composable for showing Day cell on calendar.
@@ -84,13 +85,13 @@ private fun DayBodyPreview() {
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         DefaultDayBody(
-            dayModel = DayModel(date = LocalDate.now(), isOutDate = false),
+            dayModel = DayModel(date = LocalDate.now(), isToday = true, isOutDate = false),
         )
         DefaultDayBody(
-            dayModel = DayModel(date = LocalDate.now(), isOutDate = true),
+            dayModel = DayModel(date = LocalDate.now(), isToday = true, isOutDate = true),
         )
         DefaultDayBody(
-            dayModel = DayModel(date = LocalDate.now(), isOutDate = true),
+            dayModel = DayModel(date = LocalDate.now(), isToday = false, isOutDate = true),
         )
 
     }
