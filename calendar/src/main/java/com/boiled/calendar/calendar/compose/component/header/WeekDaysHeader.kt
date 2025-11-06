@@ -31,7 +31,9 @@ fun WeekdaysHeader(
             .background(containerColor)
             .padding(contentPadding),
     ) {
-        DayOfWeek.entries.forEach { day ->
+        val dayOfWeekEntries = listOf(DayOfWeek.SUNDAY) +
+                DayOfWeek.entries.filter { it != DayOfWeek.SUNDAY }
+        dayOfWeekEntries.forEach { day ->
             Text(
                 modifier = Modifier.weight(1f),
                 text = day.nameInUS(),
@@ -48,7 +50,7 @@ internal fun DayOfWeek.nameInUS(upperCase: Boolean = false): String {
         DayOfWeek.MONDAY -> "mon"
         DayOfWeek.TUESDAY -> "tues"
         DayOfWeek.WEDNESDAY -> "wed"
-        DayOfWeek.THURSDAY -> "thurs"
+        DayOfWeek.THURSDAY -> "thu"
         DayOfWeek.FRIDAY -> "fri"
         DayOfWeek.SATURDAY -> "sat"
         DayOfWeek.SUNDAY -> "sun"
