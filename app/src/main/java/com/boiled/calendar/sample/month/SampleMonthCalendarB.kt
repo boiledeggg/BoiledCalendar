@@ -38,9 +38,9 @@ import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendar
 import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendarState
 import com.boiled.calendar.calendar.compose.monthcalendar.rememberMonthCalendarState
 import com.boiled.calendar.calendar.model.DayModel
+import com.boiled.calendar.calendar.util.now
 import kotlinx.coroutines.launch
-import java.time.LocalDate
-import java.util.Locale
+import kotlinx.datetime.LocalDate
 
 /**
  * ### Sample CalendarB: Simply Customized Month Calendar
@@ -65,8 +65,10 @@ fun SampleMonthCalendarB(
             SampleDayBody(
                 dayModel = it,
                 isSelected = it.date == selectedDate,
-                onClick = { selectedDate = it.date
-                Log.d("selectedDate", selectedDate.toString())}
+                onClick = {
+                    selectedDate = it.date
+                    Log.d("selectedDate", selectedDate.toString())
+                }
             )
         },
         monthHeader = { SampleMonthHeader() },
@@ -93,7 +95,9 @@ private fun SampleCalendarHeader(
             contentDescription = null,
             modifier = Modifier.clickable {
                 coroutineScope.launch {
-                    calendarState.animateScrollToPage(calendarState.currentPage - 1)
+                    calendarState.pagerState.animateScrollToPage(
+                        calendarState.pagerState.currentPage - 1
+                    )
                 }
             }
         )
@@ -105,7 +109,9 @@ private fun SampleCalendarHeader(
             contentDescription = null,
             modifier = Modifier.clickable {
                 coroutineScope.launch {
-                    calendarState.animateScrollToPage(calendarState.currentPage + 1)
+                    calendarState.pagerState.animateScrollToPage(
+                        calendarState.pagerState.currentPage + 1
+                    )
                 }
             }
         )
@@ -113,11 +119,8 @@ private fun SampleCalendarHeader(
 }
 
 @Composable
-private fun SampleMonthHeader(
-    modifier: Modifier = Modifier,
-) {
+private fun SampleMonthHeader() {
     WeekdaysHeader(
-        locale = Locale.US,
         contentPadding = PaddingValues(16.dp),
     )
     HorizontalDivider()
@@ -153,7 +156,9 @@ private fun RowScope.SampleDayBody(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Box(
-            modifier = Modifier.size(22.dp).background(backgroundColor, CircleShape),
+            modifier = Modifier
+                .size(22.dp)
+                .background(backgroundColor, CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Text(

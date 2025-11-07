@@ -12,9 +12,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.boiled.calendar.calendar.model.DayModel
 import com.boiled.calendar.calendar.model.MonthModel
+import com.boiled.calendar.calendar.util.now
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
-import java.time.YearMonth
+import kotlinx.datetime.YearMonth
 
 @Composable
 internal fun WeekBody(

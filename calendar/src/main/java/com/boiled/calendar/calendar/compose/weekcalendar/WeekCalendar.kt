@@ -19,8 +19,6 @@ import com.boiled.calendar.calendar.compose.component.calendarbody.WeekBody
 import com.boiled.calendar.calendar.compose.component.header.WeekdaysHeader
 import com.boiled.calendar.calendar.model.DayModel
 import kotlinx.collections.immutable.toImmutableList
-import java.util.Locale
-
 /**
  * ## Customizable and scrollable week calendar view
  *
@@ -61,7 +59,7 @@ fun WeekCalendar(
         weekHeader?.invoke(this, calendarState)
 
         HorizontalPager(
-            state = calendarState,
+            state = calendarState.pagerState,
             modifier = modifier,
             contentPadding = contentPadding,
             userScrollEnabled = userScrollEnabled
@@ -97,7 +95,6 @@ private fun WeekCalendarPreview() {
         weekBody = null,
         weekHeader = {
             WeekdaysHeader(
-                locale = Locale.KOREA,
                 contentPadding = PaddingValues(16.dp),
             )
             HorizontalDivider()

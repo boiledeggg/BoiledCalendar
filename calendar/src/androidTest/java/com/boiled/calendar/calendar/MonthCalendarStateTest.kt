@@ -9,12 +9,13 @@ import com.boiled.calendar.calendar.compose.monthcalendar.MonthCalendarState
 import com.boiled.calendar.calendar.compose.monthcalendar.rememberMonthCalendarState
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
+import kotlinx.datetime.YearMonth
+import kotlinx.datetime.plusMonth
 import org.junit.Rule
 import org.junit.Test
-import java.time.YearMonth
 
 class MonthCalendarStateTest {
-    private lateinit var state: MonthCalendarState;
+    private lateinit var calendarState: MonthCalendarState;
 
     @get:Rule
     val composeTestRule = createComposeRule()
@@ -23,18 +24,18 @@ class MonthCalendarStateTest {
     @Test
     fun monthCalendarState_SavableRestored_afterConfiguration() {
         // given
-        val yearMonth = YearMonth.of(2026, 4)
+        val yearMonth = YearMonth(2026, 4)
         stateRestorationTester.setContent {
-            state = rememberMonthCalendarState(currentYearMonth = yearMonth)
+            calendarState = rememberMonthCalendarState(currentYearMonth = yearMonth)
             Column {
                 MonthCalendar(
-                    calendarState = state,
+                    calendarState = calendarState,
                     dayBody = null,
                     weekBody = null,
                     monthHeader = null,
                     calendarHeader = {
                         Text(
-                            text = state.currentYearMonth.toString(),
+                            text = this@MonthCalendarStateTest.calendarState.currentYearMonth.toString(),
                         )
                     },
                 )
@@ -44,13 +45,13 @@ class MonthCalendarStateTest {
         // when
         composeTestRule.runOnUiThread {
             runBlocking {
-                state.scrollToPage(state.currentPage + 1)
+                calendarState.pagerState.scrollToPage(calendarState.pagerState.currentPage + 1)
             }
         }
         stateRestorationTester.emulateSavedInstanceStateRestore()
         composeTestRule.waitForIdle()
 
         // then
-        assertEquals(yearMonth.plusMonths(1), state.currentYearMonth)
+        assertEquals(yearMonth.plusMonth(), calendarState.currentYearMonth)
     }
 }
