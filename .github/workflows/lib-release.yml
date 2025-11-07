@@ -29,11 +29,6 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Append GPG signing key to gradle.properties
-        run: |
-          echo "" >> ./gradle.properties
-          echo '${{ secrets.GPG_SIGNINGS }}' >> ./gradle.properties
-
       - name: Run unit test
         run: ./gradlew testDebugUnitTest
 
