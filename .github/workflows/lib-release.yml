@@ -38,8 +38,9 @@ jobs:
             -PmavenCentralUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
             -PmavenCentralPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}" \
             -Psigning.keyId="${{ secrets.GPG_SIGNING_KEY_ID }}" \
-            -Psigning.password="${{ secrets.GPG_SIGNING_PASSWORD }}" \
-            -Psigning.secretKey='${{ secrets.GPG_SECRET_KEY }}'
+            -Psigning.password="${{ secrets.GPG_SIGNING_PASSWORD }}"
+        env:
+          ORG_GRADLE_PROJECT_signing_secretKey: ${{ secrets.GPG_SECRET_KEY }}
 
       - name: Get Project Version
         id: get_version
