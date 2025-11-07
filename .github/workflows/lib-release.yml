@@ -33,12 +33,13 @@ jobs:
         run: ./gradlew testDebugUnitTest
 
       - name: Publish and release to MavenCentral
-        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
-        env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.GPG_SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.GPG_SIGNING_PASSWORD }}
+        run: |
+          ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
+            -PmavenCentralUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
+            -PmavenCentralPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}" \
+            -Psigning.keyId="${{ secrets.GPG_SIGNING_KEY_ID }}" \
+            -Psigning.password="${{ secrets.GPG_SIGNING_PASSWORD }}" \
+            -Psigning.secretKey='${{ secrets.GPG_SIGNING_KEY }}'
 
       - name: Get Project Version
         id: get_version
