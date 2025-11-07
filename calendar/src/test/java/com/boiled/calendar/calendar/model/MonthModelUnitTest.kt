@@ -33,6 +33,6 @@ class MonthModelUnitTest {
     @Test
     fun `check if StringFormat is correct`() {
         val formattedString = monthModel.toString()
-        assertEquals("2025년 02월", formattedString)
+        assertEquals("2025-02", formattedString)
     }
 }
