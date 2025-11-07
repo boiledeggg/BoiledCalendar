@@ -33,14 +33,15 @@ jobs:
         run: ./gradlew testDebugUnitTest
 
       - name: Publish and release to MavenCentral
-        run: |
-          ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache --stacktrace
-            -PmavenCentralUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
-            -PmavenCentralPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}"
         env:
           ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.GPG_SIGNING_KEY_ID }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_SIGNING_PASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_SECRET_KEY }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+        run: |
+          ./gradlew publishAndReleaseToMavenCentral \
+          --no-configuration-cache --stacktrace
 
       - name: Get Project Version
         id: get_version
