@@ -34,7 +34,7 @@ jobs:
 
       - name: Publish and release to MavenCentral
         run: |
-          ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
+          ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache --stacktrace
             -PmavenCentralUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
             -PmavenCentralPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}" \
             -Psigning.keyId="${{ secrets.GPG_SIGNING_KEY_ID }}" \
