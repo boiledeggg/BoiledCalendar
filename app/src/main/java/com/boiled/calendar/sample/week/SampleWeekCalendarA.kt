@@ -26,7 +26,6 @@ import com.boiled.calendar.calendar.compose.weekcalendar.WeekCalendar
 import com.boiled.calendar.calendar.compose.weekcalendar.WeekCalendarState
 import com.boiled.calendar.calendar.compose.weekcalendar.rememberWeekCalendarState
 import kotlinx.coroutines.launch
-import java.util.Locale
 
 
 /**
@@ -77,7 +76,9 @@ private fun SampleCalendarHeader(
             contentDescription = null,
             modifier = Modifier.clickable {
                 coroutineScope.launch {
-                    calendarState.animateScrollToPage(calendarState.currentPage - 1)
+                    calendarState.pagerState.animateScrollToPage(
+                        calendarState.pagerState.currentPage - 1
+                    )
                 }
             }
         )
@@ -89,7 +90,7 @@ private fun SampleCalendarHeader(
             contentDescription = null,
             modifier = Modifier.clickable {
                 coroutineScope.launch {
-                    calendarState.animateScrollToPage(calendarState.currentPage + 1)
+                    calendarState.pagerState.animateScrollToPage(calendarState.pagerState.currentPage + 1)
                 }
             }
         )
@@ -99,7 +100,6 @@ private fun SampleCalendarHeader(
 @Composable
 private fun SampleWeekHeader() {
     WeekdaysHeader(
-        locale = Locale.US,
         contentPadding = PaddingValues(16.dp),
     )
     HorizontalDivider()

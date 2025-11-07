@@ -1,17 +1,17 @@
 package com.boiled.calendar.calendar.model
 
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.YearMonth
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import java.time.LocalDate
-import java.time.YearMonth
 
 class MonthModelUnitTest {
     private lateinit var monthModel: MonthModel
 
     @Before
     fun setUp() {
-        monthModel = MonthModel(yearMonth = YearMonth.of(2025, 2))
+        monthModel = MonthModel(yearMonth = YearMonth(2025, 2))
     }
 
     @Test
@@ -26,7 +26,7 @@ class MonthModelUnitTest {
     fun `check if correct DayModel is returned`() {
         val dayModel = monthModel.calendarMonth[0][0]
 
-        assertEquals(LocalDate.of(2025, 1, 26), dayModel.date)
+        assertEquals(LocalDate(2025, 1, 26), dayModel.date)
         assertEquals(true, dayModel.isOutDate)
     }
 

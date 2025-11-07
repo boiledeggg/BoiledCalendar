@@ -11,6 +11,10 @@ android {
     setNameSpace("calendar.compose")
 }
 
+dependencies {
+    implementation(libs.kotlinx.datetime)
+}
+
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()

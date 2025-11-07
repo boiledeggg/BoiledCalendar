@@ -20,7 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.boiled.calendar.calendar.compose.component.calendarbody.util.CalendarColor
 import com.boiled.calendar.calendar.model.DayModel
-import java.time.LocalDate
+import com.boiled.calendar.calendar.util.now
+import kotlinx.datetime.LocalDate
 
 /**
  * Customizable Composable for showing Day cell on calendar.
@@ -28,7 +29,8 @@ import java.time.LocalDate
  * This composable is used in WeekBody to show days in weeks and months
  *
  * @param dayModel DayModel to show in current cell.
- * @param modifier Modifier for this composable.
+ * @param modifier Modifier applied to the layout of this composable.
+ * @param shape Shape of inner container.
  * @param textStyle TextStyle of number in current cell.
  * @param dayBodyColor DayBodyColor to customize this cell.
  */
@@ -83,15 +85,15 @@ private fun DayBodyPreview() {
         modifier = Modifier.height(100.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
+        val commonDayModel = DayModel(date = LocalDate.now(), isToday = false, isOutDate = false)
         DefaultDayBody(
-            dayModel = DayModel(date = LocalDate.now(), isOutDate = false),
+            dayModel = commonDayModel.copy(isToday = true),
         )
         DefaultDayBody(
-            dayModel = DayModel(date = LocalDate.now(), isOutDate = true),
+            dayModel = commonDayModel.copy(isToday = true, isOutDate = true),
         )
         DefaultDayBody(
-            dayModel = DayModel(date = LocalDate.now(), isOutDate = true),
+            dayModel = commonDayModel.copy(isOutDate = true),
         )
-
     }
 }
